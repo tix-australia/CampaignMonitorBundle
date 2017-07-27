@@ -46,7 +46,7 @@ class ListConnector
     public function getDetails()
     {
         $response = new Response($this->listConnection->get());
-        $hydrator = new Hydrator(ListDetails::class);
+        $hydrator = new Hydrator('\Intracto\CampaignMonitorBundle\Model\ListDetails');
 
         return $hydrator->hydrate($response->getContent());
     }
@@ -103,7 +103,7 @@ class ListConnector
             throw new SubscriberNotFound('The subscriber with e-mail ' . $email .' was not found.');
         }
 
-        $hydrator = new Hydrator(Subscriber::class);
+        $hydrator = new Hydrator('\Intracto\CampaignMonitorBundle\Model\Subscriber');
 
         return $hydrator->hydrate($response->getContent());
     }
@@ -194,7 +194,7 @@ class ListConnector
 
         return new Paginator(
           $response,
-          new Hydrator(Subscriber::class),
+          new Hydrator('\Intracto\CampaignMonitorBundle\Model\Subscriber'),
           [$this, __METHOD__],
           [$page + 1, $pageSize, $addedSince, $orderField, $orderDirection]
         );
@@ -226,7 +226,7 @@ class ListConnector
 
         return new Paginator(
           $response,
-          new Hydrator(Subscriber::class),
+          new Hydrator('\Intracto\CampaignMonitorBundle\Model\Subscriber'),
           [$this, __METHOD__],
           [$page + 1, $pageSize, $addedSince, $orderField, $orderDirection]
         );
@@ -258,7 +258,7 @@ class ListConnector
 
         return new Paginator(
           $response,
-          new Hydrator(Subscriber::class),
+          new Hydrator('\Intracto\CampaignMonitorBundle\Model\Subscriber'),
           [$this, __METHOD__],
           [$page + 1, $pageSize, $addedSince, $orderField, $orderDirection]
         );
@@ -291,7 +291,7 @@ class ListConnector
 
         return new Paginator(
           $response,
-          new Hydrator(Subscriber::class),
+          new Hydrator('\Intracto\CampaignMonitorBundle\Model\Subscriber'),
           [$this, __METHOD__],
           [$page + 1, $pageSize, $addedSince, $orderField, $orderDirection]
         );
@@ -303,7 +303,7 @@ class ListConnector
     public function getWebHooks()
     {
         $response = new Response($this->listConnection->get_webhooks());
-        $hydrator = new Hydrator(Webhook::class);
+        $hydrator = new Hydrator('\Intracto\CampaignMonitorBundle\Model\Webhook');
 
         return $hydrator->hydrateDataSet($response->getContent());
     }

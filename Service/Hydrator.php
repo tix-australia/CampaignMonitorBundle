@@ -22,7 +22,7 @@ class Hydrator
     {
         $reflectionClass = new \ReflectionClass($modelClass);
 
-        if (!$reflectionClass->implementsInterface(Hydrateable::class)) {
+        if (!$reflectionClass->implementsInterface('\Intracto\CampaignMonitorBundle\Model\Hydrateable')) {
             throw new ModelIsNotHydrateable('The model class '.$modelClass.' must implement the Hydrateable interface');
         }
 

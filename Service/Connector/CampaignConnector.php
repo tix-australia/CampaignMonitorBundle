@@ -77,7 +77,7 @@ class CampaignConnector
 
         return new Paginator(
           $response,
-          new Hydrator(CampaignRecipient::class),
+          new Hydrator('\Intracto\CampaignMonitorBundle\Model\CampaignRecipient'),
           [$this, __METHOD__],
           [$page + 1, $pageSize, $orderField, $orderDirection]
         );
@@ -115,7 +115,7 @@ class CampaignConnector
 
         return new Paginator(
           $response,
-          new Hydrator(CampaignBounce::class),
+          new Hydrator('\Intracto\CampaignMonitorBundle\Model\CampaignBounce'),
           [$this, __METHOD__],
           [$page + 1, $pageSize, $addedSince, $orderField, $orderDirection]
         );
@@ -147,7 +147,7 @@ class CampaignConnector
 
         return new Paginator(
           $response,
-          new Hydrator(CampaignOpen::class),
+          new Hydrator('\Intracto\CampaignMonitorBundle\Model\CampaignOpen'),
           [$this, __METHOD__],
           [$page + 1, $pageSize, $addedSince, $orderField, $orderDirection]
         );
@@ -185,7 +185,7 @@ class CampaignConnector
 
         return new Paginator(
           $response,
-          new Hydrator(CampaignClick::class),
+          new Hydrator('\Intracto\CampaignMonitorBundle\Model\CampaignClick'),
           [$this, __METHOD__],
           [$page + 1, $pageSize, $addedSince, $orderField, $orderDirection]
         );
@@ -223,7 +223,7 @@ class CampaignConnector
 
         return new Paginator(
           $response,
-          new Hydrator(CampaignUnsubscribe::class),
+          new Hydrator('\Intracto\CampaignMonitorBundle\Model\CampaignUnsubscribe'),
           [$this, __METHOD__],
           [$page + 1, $pageSize, $addedSince, $orderField, $orderDirection]
         );
@@ -255,7 +255,7 @@ class CampaignConnector
 
         return new Paginator(
           $response,
-          new Hydrator(CampaignSpamComplaint::class),
+          new Hydrator('\Intracto\CampaignMonitorBundle\Model\CampaignSpamComplaint'),
           [$this, __METHOD__],
           [$page + 1, $pageSize, $addedSince, $orderField, $orderDirection]
         );

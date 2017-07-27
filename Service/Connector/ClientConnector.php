@@ -48,7 +48,7 @@ class ClientConnector
     public function getLists()
     {
         $response = new Response($this->clientConnection->get_lists());
-        $hydrator = new Hydrator(ListReference::class);
+        $hydrator = new Hydrator('\Intracto\CampaignMonitorBundle\Model\ListReference');
 
         return $hydrator->hydrateDataSet($response->getContent());
     }
@@ -59,7 +59,7 @@ class ClientConnector
     public function getSegments()
     {
         $response = new Response($this->clientConnection->get_segments());
-        $hydrator = new Hydrator(SegmentReference::class);
+        $hydrator = new Hydrator('\Intracto\CampaignMonitorBundle\Model\SegmentReference');
 
         return $hydrator->hydrateDataSet($response->getContent());
     }
@@ -70,7 +70,7 @@ class ClientConnector
     public function getCampaignsSent()
     {
         $response = new Response($this->clientConnection->get_campaigns());
-        $hydrator = new Hydrator(CampaignSent::class);
+        $hydrator = new Hydrator('\Intracto\CampaignMonitorBundle\Model\CampaignSent');
 
         return $hydrator->hydrateDataSet($response->getContent());
     }
@@ -81,7 +81,7 @@ class ClientConnector
     public function getCampaignsScheduled()
     {
         $response = new Response($this->clientConnection->get_scheduled());
-        $hydrator = new Hydrator(CampaignScheduled::class);
+        $hydrator = new Hydrator('\Intracto\CampaignMonitorBundle\Model\CampaignScheduled');
 
         return $hydrator->hydrateDataSet($response->getContent());
     }
@@ -92,7 +92,7 @@ class ClientConnector
     public function getCampaignsDrafts()
     {
         $response = new Response($this->clientConnection->get_drafts());
-        $hydrator = new Hydrator(CampaignDraft::class);
+        $hydrator = new Hydrator('\Intracto\CampaignMonitorBundle\Model\CampaignDraft');
 
         return $hydrator->hydrateDataSet($response->getContent());
     }

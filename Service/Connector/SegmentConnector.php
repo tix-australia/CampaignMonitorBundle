@@ -37,7 +37,7 @@ class SegmentConnector
     public function getDetails()
     {
         $response = new Response($this->segmentsConnection->get());
-        $hydrator = new Hydrator(Segment::class);
+        $hydrator = new Hydrator('\Intracto\CampaignMonitorBundle\Model\Segment');
 
         return $hydrator->hydrate($response->getContent());
     }
@@ -69,7 +69,7 @@ class SegmentConnector
 
         return new Paginator(
           $response,
-          new Hydrator(Subscriber::class),
+          new Hydrator('\Intracto\CampaignMonitorBundle\Model\Subscriber'),
           [$this, __METHOD__],
           [$page + 1, $pageSize, $addedSince, $orderField, $orderDirection]
         );
